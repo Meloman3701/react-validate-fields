@@ -1,0 +1,19 @@
+{
+  "name": "react-validate-fields",
+  "version": "1.0.5",
+  "keywords": ["react", "validation", "validate", "react async validation", "custom react validation", "validation hooks", "javascript"],
+  "description": "Validate fields for react application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dzmitry Yankouski",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Meloman3701/react-validate-fields"
+  }
+}
