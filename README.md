@@ -1,4 +1,4 @@
-# React validate fields v1.0.4
+# React validate fields v1.0.5
 
 This library provides hooks for react application to validate any type of fields.
 
