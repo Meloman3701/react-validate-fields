@@ -13,8 +13,8 @@ export function useValidator(rules, messages) {
     const validate = (fields) => {
         return new Promise((resolve, reject) => {
             let promises = []
-            const errors = {}
             let valid = true
+            const errors = {}
             const field_names = Object.keys(fields)
 
             field_names.map(field_name => {
@@ -29,29 +29,27 @@ export function useValidator(rules, messages) {
                             try {
                                 const validate_func = rules[field_name][rule_name]
                                 const isValid = await validate_func(field_value)
-                                if (!isValid) {
-                                    valid = false
-                                    const message_func = messages[field_name][rule_name]
-                                    errors[field_name].push(message_func(field_value));
+                                if (isValid === false) {
+                                    throw 'not valid function'
+                                } else {
+                                    resolve()
                                 }
-                                resolve()
-                            } catch(err) {
-                                reject(err)
+                            } catch {
+                                valid = false
+                                const message_func = messages[field_name][rule_name]
+                                errors[field_name].push(message_func(field_value))
+                                reject()
                             }
-                    }))
+                        })
+                    )
                 })
             })
 
-            Promise.all(promises).then(() => {
+            Promise.allSettled(promises).then(() => {
                 setErrors(errors)
                 setIsValid(valid)
-    
-                if (valid) {
-                    resolve()
-                } else {
-                    reject(errors)
-                }
-            }).catch(err => reject(err))
+                valid ? resolve() : reject(errors)
+            })
         })
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "react-validate-fields",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "keywords": ["react", "validation", "validate", "react async validation", "custom react validation", "validation hooks", "javascript"],
   "description": "Validate fields for react application",
   "main": "index.js",

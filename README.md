@@ -1,4 +1,4 @@
-# React validate fields v1.0.5
+# React validate fields v1.1.0
 
 This library provides hooks for react application to validate any type of fields.
 
@@ -18,16 +18,15 @@ Define validation rules. You can use existing rules from the libraty or define y
 ```javascript
 const validateRules = {
     email: {
-        isEmail: (value) => rules.email(value),
-        custom: (value) => {
+        isEmail: (value) => rules.email(value),     // rule from library
+        custom: (value) => {                        // user defined rule
             return true
         },
         asyncRule: (value) => {
             return new Promise((resolve, reject) => { 
                 fetch('get-data')
-                    .then(() => {
-                        resolve()
-                    })
+                    .then(() => resolve())
+                    .catch(() => reject())
             })
         }
     }
@@ -40,7 +39,7 @@ const validateMessages = {
     email: {
         isEmail: (value) => 'Email is not valid',
         custom: () => 'Custom rule is not passed',
-        asyncRule: () => 'Async rules is not passed'
+        asyncRule: () => 'Async rule is not passed'
     }
 }
 ```
@@ -57,8 +56,8 @@ function App() {
 
     const onClickButton = () => {
         validate({
-            email: value
-        }).then(() => {
+            email: value        // you can pass any variable you want (boolean | string | object | function | etc. )
+        }).then((errors) => {
             // all fields are valid
         })
     }
@@ -69,7 +68,7 @@ function App() {
             <Button onClick={onClickButton}>send form</Button>
 
             {isValid &&
-                <div>is valid</div>
+                <div>form is valid</div>
             }
         </div>
     );
