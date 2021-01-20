@@ -1,7 +1,15 @@
 {
   "name": "react-validate-fields",
-  "version": "1.1.1",
-  "keywords": ["react", "validation", "validate", "react async validation", "custom react validation", "validation hooks", "javascript"],
+  "version": "1.1.2",
+  "keywords": [
+    "react",
+    "validation",
+    "validate",
+    "react async validation",
+    "custom react validation",
+    "validation hooks",
+    "javascript"
+  ],
   "description": "Validate fields for react application",
   "main": "index.js",
   "scripts": {
@@ -15,5 +23,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Meloman3701/react-validate-fields"
+  },
+  "dependencies": {
+    "allsettled-polyfill": "^1.0.4"
   }
 }

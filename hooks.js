@@ -1,3 +1,4 @@
+import 'allsettled-polyfill';
 import { useState } from "react";
 
 export function useValidator(rules, messages) {
