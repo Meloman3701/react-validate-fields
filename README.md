@@ -1,4 +1,4 @@
-# React validate fields v1.1.3
+# React validate fields v1.1.4
 
 This library provides hooks for react application to validate any type of fields.
 
@@ -31,8 +31,8 @@ const validateRules = {
     }
   },
   fullName: {
-    firstName: ({ firstName }) => return true,
-    lastName: ({ lastName }) => rreturn true
+    firstName: ({ firstName }) => true,
+    lastName: ({ lastName }) => true
   }
 }
 ```
